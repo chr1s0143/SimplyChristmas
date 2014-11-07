@@ -11,12 +11,18 @@ commands:
   present:
     usage: /present tpset (player name)
     description: Sets the tp position that you are currently at for the player.
+  present:
+    usage: /present done (player name)
+    description: Sets the tp position that you are currently at for the player
   presenttp:
     usage: /presenttp
     description: Teleports you to your present! (Unlocked on the 25th December)
   presenttpt:
     usage: /presenttpt [playername]
     description: Staff can tp to a players chest. (presenttpt stands for present tp to)
+  simplyxmas:
+    usage: /simplyxmas help
+    description: Shows all available commands that you have access to.
   simplyxmasb:
     usage: /simplyxmasb
     description: Broadcasts the info. (Message found in the config)

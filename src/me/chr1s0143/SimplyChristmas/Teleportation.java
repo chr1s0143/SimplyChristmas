@@ -28,8 +28,11 @@ public class Teleportation implements CommandExecutor {
             Player player = (Player) sender;
             if (cmd.getName().equalsIgnoreCase("present")) {
                 if (player.hasPermission("simplyxmas.tpset")) {
-                    if (args.length == 0)
-                        player.sendMessage(ChatColor.RED + "Try doing " + ChatColor.GOLD + "/present tpset (playername)");
+                    if (args.length == 0) {
+                        player.sendMessage(ChatColor.YELLOW + "Present Commands:");
+                        player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
+                        player.sendMessage(ChatColor.GOLD + "/present done (player name)");
+                    }
                     else if (args[0].equalsIgnoreCase("tpset")) {
                         if (args.length == 2) {
                             if (main.getConfig().getStringList("Locations").contains(args[1])) {
@@ -53,11 +56,15 @@ public class Teleportation implements CommandExecutor {
                 //need to add the check name in config
             } else if (cmd.getName().equalsIgnoreCase("presenttp")) {
                 if (player.hasPermission("simplyxmas.tp")) {
+                    if (main.getConfig().contains(player.getName())) {
                     int x = main.getConfig().getInt(player.getName() + ".x"),
                             y = main.getConfig().getInt(player.getName() + ".y"),
                             z = main.getConfig().getInt(player.getName() + ".z");
                     player.teleport(new Location(player.getWorld(), x, y, z));
                     player.sendMessage(ChatColor.GREEN + "Teleporting to your present");
+                    }else { player.sendMessage(ChatColor.RED + "Could not locate your present. Did you " + ChatColor.GOLD + "/ask santa" + ChatColor.RED + "?");
+                        player.sendMessage(ChatColor.RED + "If you think this is an error, contact a member of staff");
+                    }
                 } else
                     player.sendMessage(ChatColor.AQUA + "Santa " + ChatColor.RED + "hasn't given you permission to go to your present yet! Wait until the " + ChatColor.GOLD + "25th, December");
             }
