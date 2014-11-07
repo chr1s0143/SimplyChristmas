@@ -60,6 +60,19 @@ public class Teleportation implements CommandExecutor {
                 } else
                     player.sendMessage(ChatColor.AQUA + "Santa " + ChatColor.RED + "hasn't given you permission to go to your present yet! Wait until the " + ChatColor.GOLD + "25th, December");
             }
+            else if (cmd.getName().equalsIgnoreCase("presenttpt")) {
+                if (player.hasPermission("simplyxmas.tpt")) {
+                    if (args.length == 0)
+                        player.sendMessage(ChatColor.RED + "Try doing " + ChatColor.GOLD + "/presenttpt (playername)");
+                    else if (args.length == 1) {
+                        int x = main.getConfig().getInt(args[0] + ".x"),
+                                y = main.getConfig().getInt(player.getName() + ".y"),
+                                z = main.getConfig().getInt(player.getName() + ".z");
+                        player.teleport(new Location(player.getWorld(), x, y, z));
+                    }
+                    else player.sendMessage(ChatColor.DARK_RED + "Player " + ChatColor.GOLD + " " + args[0] + ChatColor.DARK_RED + "doesn't have a tp set" );
+                } else player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
+            }
 
         }
         return true;

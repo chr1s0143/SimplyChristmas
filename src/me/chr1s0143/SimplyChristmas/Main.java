@@ -35,6 +35,7 @@ public class Main extends JavaPlugin{
         getCommand("simplyxmasb").setExecutor(new Announcement());
         getCommand("present").setExecutor(new Teleportation());
         getCommand("presenttp").setExecutor(new Teleportation());
+        getCommand("presenttpt").setExecutor(new Teleportation());
 
         }
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
