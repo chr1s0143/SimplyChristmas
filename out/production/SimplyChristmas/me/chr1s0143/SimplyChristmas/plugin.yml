@@ -1,0 +1,32 @@
+name: SimplyChristmas
+main: me.chr1s0143.SimplyChristmas.Main
+version: 1.0
+author: Chris Hall
+description: Christmas has come to SimplyCrafted! Ask SantaSquish for a gift which he will allow you to open from Christmas Day, onwards.
+
+commands:
+  ask:
+    usage: /ask santa
+    description: Ask Santa for a present. This will put you on his list!
+  present:
+    usage: /present tpset (player name)
+    description: Sets the tp position that you are currently at for the player.
+  presenttp:
+    usage: /presenttp
+    description: Teleports you to your present! (Unlocked on the 25th December)
+  presentinfo:
+    usage: /presentinfo
+    description: How many days/hours you have until
+  presenttpt:
+    usage: /presenttpt [playername]
+    description: Staff can tp to a players chest. (presenttpt stands for present tp to)
+  simplyxmasb:
+    usage: /simplyxmasb
+    description: Broadcasts the info. (Message found in the config)
+  simplyxmasr:
+    usage: /simplyxmasr
+    description: Reloads the config.
+
+permissions:
+    simplyxmas.ask:
+        description: Access to /ask santa
