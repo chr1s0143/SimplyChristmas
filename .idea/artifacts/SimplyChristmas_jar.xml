@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="SimplyChristmas:jar">
-    <output-path>$PROJECT_DIR$/../Build Server/Minecraft/plugins</output-path>
+    <output-path>$USER_HOME$/Desktop/Build Server/Minecraft/plugins</output-path>
     <root id="archive" name="SimplyChristmas.jar">
       <element id="module-output" name="SimplyChristmas" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/me/chr1s0143/SimplyChristmas/plugin.yml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/me/chr1s0143/SimplyChristmas/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/me/chr1s0143/SimplyChristmas/plugin.yml" />
     </root>
   </artifact>
 </component>

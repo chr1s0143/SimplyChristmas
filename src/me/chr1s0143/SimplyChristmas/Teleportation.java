@@ -14,10 +14,10 @@ import java.util.List;
  * Created by chris on 04/11/2014.
  */
 
-    //Staff will do "/simplyxmas tpset (player name)" to set a tp point to the %players% present.
-    //The players name and the co-ords will be added to the 'Presents' menu in the config
-    //Players will have the 'simplyxmas.tp' permission on the 25th December [Manually] (Console Time)
-    //Players will then have access to the "/presenttp" command to go to their present. (May use signs instead of commands)
+    //Staff will do "/simplyxmas tpset (player name)" to set a tp point to the %players% present. -DONE
+    //The players name and the co-ords will be added to the 'Presents' menu in the config -DONE
+    //Players will have the 'simplyxmas.tp' permission on the 25th December [Manually] (Console Time) - CHECK
+    //Players will then have access to the "/presenttp" command to go to their present.
 
 
 public class Teleportation implements CommandExecutor {
@@ -57,6 +57,7 @@ public class Teleportation implements CommandExecutor {
                             y = main.getConfig().getInt(player.getName() + ".y"),
                             z = main.getConfig().getInt(player.getName() + ".z");
                     player.teleport(new Location(player.getWorld(), x, y, z));
+                    player.sendMessage(ChatColor.GREEN + "Teleporting to your present");
                 } else
                     player.sendMessage(ChatColor.AQUA + "Santa " + ChatColor.RED + "hasn't given you permission to go to your present yet! Wait until the " + ChatColor.GOLD + "25th, December");
             }
@@ -69,6 +70,7 @@ public class Teleportation implements CommandExecutor {
                                 y = main.getConfig().getInt(player.getName() + ".y"),
                                 z = main.getConfig().getInt(player.getName() + ".z");
                         player.teleport(new Location(player.getWorld(), x, y, z));
+                        player.sendMessage(ChatColor.GREEN + "Teleporting to " + ChatColor.GOLD + "" + args[0] + "'s " + ChatColor.GREEN + "present ");
                     }
                     else player.sendMessage(ChatColor.DARK_RED + "Player " + ChatColor.GOLD + " " + args[0] + ChatColor.DARK_RED + "doesn't have a tp set" );
                 } else player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");

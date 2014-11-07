@@ -1,5 +1,6 @@
 package me.chr1s0143.SimplyChristmas;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,9 +17,9 @@ import java.util.List;
  */
 
 //ask santa will add them to the list (santa's list)
-    //if they are already on the list it will tell them: "HO HO HO! You have already been added to my list %player%"
-    //if they type "/ask" without the 'santa' argument after it will say "Don't forget to mention santa in that command! He will only answer to /ask santa"
-    //any other argument (e.g /ask bob) it will "%arg% isn't here right now, although santa is! /ask santa"
+    //if they are already on the list it will tell them: "HO HO HO! You have already been added to my list %player%" -DONE
+    //if they type "/ask" without the 'santa' argument after it will say "Don't forget to mention santa in that command! He will only answer to /ask santa" -DONE
+    //any other argument (e.g /ask bob) it will "%arg% isn't here right now, although santa is! /ask santa" - DONE
 
 //add to all classes
 public class Present implements CommandExecutor {
@@ -42,8 +43,14 @@ public class Present implements CommandExecutor {
                             main.getConfig().set("Names", string);
                             player.sendMessage(ChatColor.DARK_AQUA + "HO HO HO! Merry Christmas " + ChatColor.GOLD + " " + player.getName() + ChatColor.DARK_AQUA + "! You have been added to my list to receive a gift which you can open from Christmas day, onwards!");
                             main.saveConfig();
+                            Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] " + ChatColor.DARK_AQUA + "Santa Squish" + ChatColor.DARK_GREEN + ": HO HO HO! " + ChatColor.GOLD + "" + player.getName() + ChatColor.DARK_GREEN + " has just asked me for a gift! If you would like a gift too, just ask me." + ChatColor.GOLD + "/ask santa");
                         }
                     }
+                    else if (args.length == 1) {
+                        player.sendMessage(ChatColor.GOLD + "" + args[0] + ChatColor.AQUA + " isn't here right now, although Santa Squish is! " + ChatColor.GOLD + "/ask santa");
+                    }
+                } else {
+                    player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
                 }
 
             } else
