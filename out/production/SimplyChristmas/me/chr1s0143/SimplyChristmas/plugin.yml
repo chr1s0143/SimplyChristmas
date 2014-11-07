@@ -14,9 +14,6 @@ commands:
   presenttp:
     usage: /presenttp
     description: Teleports you to your present! (Unlocked on the 25th December)
-  presentinfo:
-    usage: /presentinfo
-    description: How many days/hours you have until
   presenttpt:
     usage: /presenttpt [playername]
     description: Staff can tp to a players chest. (presenttpt stands for present tp to)
