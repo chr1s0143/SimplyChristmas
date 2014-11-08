@@ -27,6 +27,7 @@ public class HelpList implements CommandExecutor {
                         player.sendMessage(ChatColor.GOLD + "/present tpset (player name) " + ChatColor.GREEN + " -  Set a teleport location for the player to their present");
                         player.sendMessage(ChatColor.GOLD + "/present done (player name) " + ChatColor.GREEN + " -  add the player to the done list. Make sure their tp location has been set first");
                         player.sendMessage(ChatColor.GOLD + "/presenttpt " + ChatColor.GREEN + " -  Teleport to a players present");
+                        player.sendMessage(ChatColor.GOLD + "/present playerlist " + ChatColor.GREEN + " -  Display the list of players who asked for a present");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasb " + ChatColor.GREEN + " -  Broadcast the christmas message");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasr " + ChatColor.GREEN + " -  Reload the config file " + ChatColor.RED + "(TO UPDATE THE CONFIG ONLY!)");
                     }
@@ -42,6 +43,7 @@ public class HelpList implements CommandExecutor {
                         player.sendMessage(ChatColor.GOLD + "/present tpset (player name) " + ChatColor.GREEN + " -  Set a teleport location for the player to their present");
                         player.sendMessage(ChatColor.GOLD + "/present done (player name) " + ChatColor.GREEN + " -  add the player to the done list. Make sure their tp location has been set first");
                         player.sendMessage(ChatColor.GOLD + "/presenttpt " + ChatColor.GREEN + " -  Teleport to a players present");
+                        player.sendMessage(ChatColor.GOLD + "/present playerlist " + ChatColor.GREEN + " -  Display the list of players who asked for a present");
 
                     }
                 }

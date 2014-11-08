@@ -14,6 +14,9 @@ commands:
   present:
     usage: /present done (player name)
     description: Sets the tp position that you are currently at for the player
+  present:
+    usage: /present playerlist
+    description: Display the list of players who asked for a present
   presenttp:
     usage: /presenttp
     description: Teleports you to your present! (Unlocked on the 25th December)

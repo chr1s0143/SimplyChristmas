@@ -38,6 +38,7 @@ public class Main extends JavaPlugin{
         getCommand("presenttp").setExecutor(new Teleportation());
         getCommand("presenttpt").setExecutor(new Teleportation());
         getCommand("simplyxmas").setExecutor(new HelpList());
+        getCommand("present").setExecutor(new PlayerList());
 
         }
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {

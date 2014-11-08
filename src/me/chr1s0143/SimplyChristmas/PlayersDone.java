@@ -31,6 +31,7 @@ public class PlayersDone implements CommandExecutor {
                         player.sendMessage(ChatColor.YELLOW + "Present Commands:");
                         player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
                         player.sendMessage(ChatColor.GOLD + "/present done (player name)");
+                        player.sendMessage(ChatColor.GOLD + "/present playerlist");
                     } else if (args[0].equalsIgnoreCase("done")) {
                         if (args.length == 2) {
                             if (main.getConfig().getStringList("Done").contains(args[1])) {
@@ -62,6 +63,7 @@ public class PlayersDone implements CommandExecutor {
                         player.sendMessage(ChatColor.YELLOW + "Present Commands:");
                         player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
                         player.sendMessage(ChatColor.GOLD + "/present done (player name)");
+                        player.sendMessage(ChatColor.GOLD + "/present playerlist");
                     } else if (args[0].equalsIgnoreCase("tpset")) {
                         if (args.length == 2) {
                             if (main.getConfig().getStringList("Names").contains(args[1])) {
