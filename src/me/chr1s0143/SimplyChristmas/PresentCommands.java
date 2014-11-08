@@ -59,12 +59,7 @@ public class PresentCommands implements CommandExecutor {
                     player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
                 }
                 if (player.hasPermission("simplyxmas.tpset")) {
-                    if (args.length == 0) {
-                        player.sendMessage(ChatColor.YELLOW + "Present Commands:");
-                        player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
-                        player.sendMessage(ChatColor.GOLD + "/present done (player name)");
-                        player.sendMessage(ChatColor.GOLD + "/present playerlist");
-                    } else if (args[0].equalsIgnoreCase("tpset")) {
+                    } if (args[0].equalsIgnoreCase("tpset")) {
                         if (args.length == 2) {
                             if (main.getConfig().getStringList("Names").contains(args[1])) {
                                 if (main.getConfig().contains(args[1])) {
@@ -78,6 +73,8 @@ public class PresentCommands implements CommandExecutor {
                                     player.sendMessage(ChatColor.GOLD + " " + args[1] + "'s " + ChatColor.GREEN + "location set. Be sure to do " + ChatColor.GOLD + "/present done " + "" + args[1]);
                                     main.saveConfig();
                                 }
+                            } else if (main.getConfig().getStringList("Done").contains(args[1])) {
+                                player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.RED + " is on the done list. They should have a location set already." + ChatColor.GOLD + " /presenttpt " + "" + args[1] + ChatColor.RED + " to teleport to " + "" + args[1] + "'s present.");
                             } else {
                                 player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.RED + " has not asked for a gift, therefore they cannot have a location set.");
                             }
@@ -88,22 +85,12 @@ public class PresentCommands implements CommandExecutor {
                     player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
                 }
                 if (player.hasPermission("simplyxmas.list")) {
-                    if (args.length == 0) {
-                        player.sendMessage(ChatColor.YELLOW + "Present Commands:");
-                        player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
-                        player.sendMessage(ChatColor.GOLD + "/present done (player name)");
-                        player.sendMessage(ChatColor.GOLD + "/present playerlist");
-                    } else if (args[0].equalsIgnoreCase("playerlist")) {
+                     if (args[0].equalsIgnoreCase("playerlist")) {
                         player.sendMessage(ChatColor.YELLOW + "Players:");
                         player.sendMessage("" + main.getConfig().getStringList("Names"));
                     }
-                    else { player.sendMessage(ChatColor.YELLOW + "Present Commands:");
-                        player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
-                        player.sendMessage(ChatColor.GOLD + "/present done (player name)");
-                        player.sendMessage(ChatColor.GOLD + "/present playerlist"); }
                 } else { player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!"); }
             }
-        }
         return true;
+        }
     }
-}
