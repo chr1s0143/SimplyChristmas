@@ -34,11 +34,10 @@ public class Main extends JavaPlugin{
         main = this;
         getCommand("ask").setExecutor(new Present());
         getCommand("simplyxmasb").setExecutor(new Announcement());
-        getCommand("present").setExecutor(new PlayersDone());
+        getCommand("present").setExecutor(new PresentCommands());
         getCommand("presenttp").setExecutor(new Teleportation());
         getCommand("presenttpt").setExecutor(new Teleportation());
         getCommand("simplyxmas").setExecutor(new HelpList());
-        getCommand("present").setExecutor(new PlayerList());
 
         }
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {

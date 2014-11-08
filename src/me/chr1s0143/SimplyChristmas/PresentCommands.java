@@ -12,14 +12,14 @@ import java.util.List;
  * Created by chris on 05/11/2014.
  */
 
-    //Once the players present has been added, a staff member will do /simplyxmas done (playername)
-    //this will then have the player placed in the done section of the config file. They must not be able to do /ask santa again. (Checks 'Players' list and "Done" list before adding them)
-    // if they are either on the 'Players' list or 'Done' list they will be sent a message.
-    // "" 'Players' = HO HO HO! You have already been added to my list %Player% "" (in the 'Present' class)
-    // "" 'Done'' = HO HO HO! I have already added your gift to my Sleigh %Player%. ""
+//Once the players present has been added, a staff member will do /simplyxmas done (playername)
+//this will then have the player placed in the done section of the config file. They must not be able to do /ask santa again. (Checks 'Players' list and "Done" list before adding them)
+// if they are either on the 'Players' list or 'Done' list they will be sent a message.
+// "" 'Players' = HO HO HO! You have already been added to my list %Player% "" (in the 'Present' class)
+// "" 'Done'' = HO HO HO! I have already added your gift to my Sleigh %Player%. ""
 
 
-public class PlayersDone implements CommandExecutor {
+public class PresentCommands implements CommandExecutor {
     private Main main = Main.getInstance();
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -87,6 +87,21 @@ public class PlayersDone implements CommandExecutor {
                 } else {
                     player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
                 }
+                if (player.hasPermission("simplyxmas.list")) {
+                    if (args.length == 0) {
+                        player.sendMessage(ChatColor.YELLOW + "Present Commands:");
+                        player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
+                        player.sendMessage(ChatColor.GOLD + "/present done (player name)");
+                        player.sendMessage(ChatColor.GOLD + "/present playerlist");
+                    } else if (args[0].equalsIgnoreCase("playerlist")) {
+                        player.sendMessage(ChatColor.YELLOW + "Players:");
+                        player.sendMessage("" + main.getConfig().getStringList("Names"));
+                    }
+                    else { player.sendMessage(ChatColor.YELLOW + "Present Commands:");
+                        player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
+                        player.sendMessage(ChatColor.GOLD + "/present done (player name)");
+                        player.sendMessage(ChatColor.GOLD + "/present playerlist"); }
+                } else { player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!"); }
             }
         }
         return true;
