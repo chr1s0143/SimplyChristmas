@@ -43,7 +43,7 @@ public class Present implements CommandExecutor {
                             main.getConfig().set("Names", string);
                             player.sendMessage(ChatColor.DARK_AQUA + "HO HO HO! Merry Christmas " + ChatColor.GOLD + " " + player.getName() + ChatColor.DARK_AQUA + "! You have been added to my list to receive a gift which you can open from Christmas day, onwards!");
                             main.saveConfig();
-                            Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] " + ChatColor.DARK_AQUA + "Santa Squish" + ChatColor.DARK_GREEN + ": HO HO HO! " + ChatColor.GOLD + "" + player.getName() + ChatColor.DARK_GREEN + " has just asked me for a gift! If you would like a gift too, just ask me." + ChatColor.GOLD + "/ask santa");
+                            Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] " + ChatColor.DARK_AQUA + "Santa Squish" + ChatColor.DARK_GREEN + ": HO HO HO! " + ChatColor.GOLD + "" + player.getName() + ChatColor.DARK_GREEN + " has just asked me for a gift! If you would like a gift too, just ask me." + ChatColor.GOLD + " /ask santa");
                         }
                     }
                     else if (args.length == 1) {

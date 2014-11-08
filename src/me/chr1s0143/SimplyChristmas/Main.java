@@ -13,6 +13,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.io.File;
 import java.util.concurrent.Executor;
 
 import java.util.List;
@@ -33,19 +34,28 @@ public class Main extends JavaPlugin{
         main = this;
         getCommand("ask").setExecutor(new Present());
         getCommand("simplyxmasb").setExecutor(new Announcement());
-        getCommand("present").setExecutor(new Teleportation());
+        getCommand("present").setExecutor(new PlayersDone());
         getCommand("presenttp").setExecutor(new Teleportation());
         getCommand("presenttpt").setExecutor(new Teleportation());
         getCommand("simplyxmas").setExecutor(new HelpList());
 
         }
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+        File file = new File(getDataFolder() + File.separator + "config.yml");
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (cmd.getName().equalsIgnoreCase("simplyxmasr")) {
                 if (player.hasPermission("simplyxmas.reload")) {
-                    reloadConfig();
-                    player.sendMessage(ChatColor.DARK_GREEN + "Config File Has Been Reloaded!");
+                    if (!file.exists()) {
+                        getConfig().options().copyDefaults(true);
+                        saveDefaultConfig();
+                        player.sendMessage(ChatColor.RED + "Config file was not found! Generating a new config file....");
+                        { reloadConfig(); }
+                    }
+                    else {
+                        reloadConfig();
+                        player.sendMessage(ChatColor.DARK_GREEN + "Config File Has Been Reloaded!");
+                    }
                 } else {
                     player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
                 }

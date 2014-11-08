@@ -26,35 +26,7 @@ public class Teleportation implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (cmd.getName().equalsIgnoreCase("present")) {
-                if (player.hasPermission("simplyxmas.tpset")) {
-                    if (args.length == 0) {
-                        player.sendMessage(ChatColor.YELLOW + "Present Commands:");
-                        player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
-                        player.sendMessage(ChatColor.GOLD + "/present done (player name)");
-                    }
-                    else if (args[0].equalsIgnoreCase("tpset")) {
-                        if (args.length == 2) {
-                            if (main.getConfig().getStringList("Locations").contains(args[1])) {
-                                player.sendMessage(ChatColor.RED + " " + args[1] + " has already had a tp location set");
-                            } else {
-                                List<String> string = main.getConfig().getStringList("Locations");
-                                main.getConfig().set(args[1] + ".x", player.getLocation().getBlockX());
-                                main.getConfig().set(args[1] + ".y", player.getLocation().getBlockY());
-                                main.getConfig().set(args[1] + ".z", player.getLocation().getBlockZ());
-                                main.getConfig().set("Locations", string);
-                                player.sendMessage(ChatColor.GOLD + " " + args[1] + "'s " + ChatColor.GREEN + "location set");
-                                main.saveConfig();
-                            }
-                        }
-                        else player.sendMessage(ChatColor.RED + "Try doing " + ChatColor.GOLD + "/present tpset (playername)");
-                    }
-                } else {
-                    player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
-                }
-                return true;
-                //need to add the check name in config
-            } else if (cmd.getName().equalsIgnoreCase("presenttp")) {
+             if (cmd.getName().equalsIgnoreCase("presenttp")) {
                 if (player.hasPermission("simplyxmas.tp")) {
                     if (main.getConfig().contains(player.getName())) {
                     int x = main.getConfig().getInt(player.getName() + ".x"),
@@ -71,7 +43,7 @@ public class Teleportation implements CommandExecutor {
             else if (cmd.getName().equalsIgnoreCase("presenttpt")) {
                 if (player.hasPermission("simplyxmas.tpt")) {
                     if (args.length == 0)
-                        player.sendMessage(ChatColor.RED + "Try doing " + ChatColor.GOLD + "/presenttpt (playername)");
+                        player.sendMessage(ChatColor.RED + "Try doing " + ChatColor.GOLD + "/presenttpt (player name)");
                     else if (args.length == 1) {
                         int x = main.getConfig().getInt(args[0] + ".x"),
                                 y = main.getConfig().getInt(player.getName() + ".y"),
