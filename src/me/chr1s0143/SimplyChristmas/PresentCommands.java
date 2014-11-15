@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class PresentCommands implements CommandExecutor {
     private Main main = Main.getInstance();
+    SettingsManager settings = SettingsManager.getInstance();
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         if (sender instanceof Player) {
@@ -37,13 +39,16 @@ public class PresentCommands implements CommandExecutor {
                             if (main.getConfig().getStringList("Done").contains(args[1])) {
                                 player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.RED + " is already on the done list.");
                             } else if (main.getConfig().getStringList("Names").contains(args[1])) {
-                                List<String> string = main.getConfig().getStringList("Done");
-                                string.add(args[1]);
-                                main.getConfig().set("Done", string);
-                                player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.GREEN + " has been added to the done list.");
-                                main.saveConfig();
+                                    if (settings.getLocationsFile().getStringList("Names").contains(args[1])) {
+                                    List<String> string = main.getConfig().getStringList("Done");
+                                    string.add(args[1]);
+                                    main.getConfig().set("Done", string);
+                                    player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.GREEN + " has been added to the done list.");
+                                    main.saveConfig();
+                                }
+                                else { player.sendMessage(ChatColor.RED + "You forgot to set a TP location for " + ChatColor.GOLD + "" + args[1] + ChatColor.RED + ". Do " + ChatColor.GOLD + "/present tpset " + args[1]); }
                             }
-                            if (main.getConfig().getStringList("Done").contains(args[1])) {
+                            else if (main.getConfig().getStringList("Done").contains(args[1])) {
                                 List<String> string = main.getConfig().getStringList("Names");
                                 string.remove(args[1]);
                                 main.getConfig().set("Names", string);
@@ -62,16 +67,18 @@ public class PresentCommands implements CommandExecutor {
                     } if (args[0].equalsIgnoreCase("tpset")) {
                         if (args.length == 2) {
                             if (main.getConfig().getStringList("Names").contains(args[1])) {
-                                if (main.getConfig().contains(args[1])) {
+                                if (settings.getLocationsFile().getStringList("Names").contains(args[1])) {
                                     player.sendMessage(ChatColor.RED + " " + args[1] + " has already had a tp location set");
                                 } else {
-                                    List<String> string = main.getConfig().getStringList("Locations");
-                                    main.getConfig().set(args[1] + ".x", player.getLocation().getBlockX());
-                                    main.getConfig().set(args[1] + ".y", player.getLocation().getBlockY());
-                                    main.getConfig().set(args[1] + ".z", player.getLocation().getBlockZ());
-                                    main.getConfig().set("Locations", string);
+                                    List<String> string = settings.getLocationsFile().getStringList("Names");
+                                    string.add(args[1]);
+                                    settings.getLocationsFile().set("Names", string);
+                                    settings.getLocationsFile().getStringList("Locations");
+                                    settings.getLocationsFile().set(args[1] + ".x", player.getLocation().getBlockX());
+                                    settings.getLocationsFile().set(args[1] + ".y", player.getLocation().getBlockY());
+                                    settings.getLocationsFile().set(args[1] + ".z", player.getLocation().getBlockZ());
                                     player.sendMessage(ChatColor.GOLD + " " + args[1] + "'s " + ChatColor.GREEN + "location set. Be sure to do " + ChatColor.GOLD + "/present done " + "" + args[1]);
-                                    main.saveConfig();
+                                    settings.saveLocationsFile();
                                 }
                             } else if (main.getConfig().getStringList("Done").contains(args[1])) {
                                 player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.RED + " is on the done list. They should have a location set already." + ChatColor.GOLD + " /presenttpt " + "" + args[1] + ChatColor.RED + " to teleport to " + "" + args[1] + "'s present.");

@@ -5,6 +5,8 @@
       <element id="module-output" name="SimplyChristmas" />
       <element id="file-copy" path="$PROJECT_DIR$/src/me/chr1s0143/SimplyChristmas/config.yml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/me/chr1s0143/SimplyChristmas/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/me/chr1s0143/SimplyChristmas/advent.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/me/chr1s0143/SimplyChristmas/locations.yml" />
     </root>
   </artifact>
 </component>

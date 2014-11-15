@@ -27,11 +27,20 @@ commands:
     usage: /simplyxmas help
     description: Shows all available commands that you have access to.
   simplyxmasb:
-    usage: /simplyxmasb
-    description: Broadcasts the info. (Message found in the config)
+    usage: /simplyxmasb start
+    description: Starts the Auto-Broadcasting.
+  simplyxmasb:
+    usage: /simplyxmasb stop
+    description: Stops the Auto-Broadcasting.
+  simplyxmasb:
+    usage: /simplyxmasb broadcast
+    description: Broadcasts the SimplyChristmas Broadcast message manually.
   simplyxmasr:
     usage: /simplyxmasr
     description: Reloads the config.
+  advent:
+    usage: /advent (day) (e.g. /advent day1)
+    description: Claim the daily gift from the SimplyChristmas advent calendar.
 
 permissions:
     simplyxmas.ask:

@@ -28,7 +28,9 @@ public class HelpList implements CommandExecutor {
                         player.sendMessage(ChatColor.GOLD + "/present done (player name) " + ChatColor.GREEN + " -  add the player to the done list. Make sure their tp location has been set first");
                         player.sendMessage(ChatColor.GOLD + "/presenttpt " + ChatColor.GREEN + " -  Teleport to a players present");
                         player.sendMessage(ChatColor.GOLD + "/present playerlist " + ChatColor.GREEN + " -  Display the list of players who asked for a present");
-                        player.sendMessage(ChatColor.GOLD + "/simplyxmasb " + ChatColor.GREEN + " -  Broadcast the christmas message");
+                        player.sendMessage(ChatColor.GOLD + "/simplyxmasb start " + ChatColor.GREEN + " -  Start the auto-broadcasting");
+                        player.sendMessage(ChatColor.GOLD + "/simplyxmasb stop " + ChatColor.GREEN + " -  Stop the auto-broadcasting");
+                        player.sendMessage(ChatColor.GOLD + "/simplyxmasb broadcast " + ChatColor.GREEN + " -  Manually broadcast the message");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasr " + ChatColor.GREEN + " -  Reload the config file " + ChatColor.RED + "(TO UPDATE THE CONFIG ONLY!)");
                     }
                 }
