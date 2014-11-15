@@ -39,20 +39,22 @@ public class PresentCommands implements CommandExecutor {
                             if (main.getConfig().getStringList("Done").contains(args[1])) {
                                 player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.RED + " is already on the done list.");
                             } else if (main.getConfig().getStringList("Names").contains(args[1])) {
-                                    if (settings.getLocationsFile().getStringList("Names").contains(args[1])) {
+                                if (settings.getLocationsFile().getStringList("Names").contains(args[1])) {
                                     List<String> string = main.getConfig().getStringList("Done");
                                     string.add(args[1]);
                                     main.getConfig().set("Done", string);
                                     player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.GREEN + " has been added to the done list.");
                                     main.saveConfig();
+                                } else {
+                                    player.sendMessage(ChatColor.RED + "You forgot to set a TP location for " + ChatColor.GOLD + "" + args[1] + ChatColor.RED + ". Do " + ChatColor.GOLD + "/present tpset " + args[1]);
                                 }
-                                else { player.sendMessage(ChatColor.RED + "You forgot to set a TP location for " + ChatColor.GOLD + "" + args[1] + ChatColor.RED + ". Do " + ChatColor.GOLD + "/present tpset " + args[1]); }
-                            }
-                            else if (main.getConfig().getStringList("Done").contains(args[1])) {
-                                List<String> string = main.getConfig().getStringList("Names");
-                                string.remove(args[1]);
-                                main.getConfig().set("Names", string);
-                                main.saveConfig();
+
+                                if (main.getConfig().getStringList("Done").contains(args[1])) {
+                                    List<String> string = main.getConfig().getStringList("Names");
+                                    string.remove(args[1]);
+                                    main.getConfig().set("Names", string);
+                                    main.saveConfig();
+                                }
                             } else {
                                 player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.RED + " has not asked for a gift. Check to make sure you spelt the name correctly.");
                             }
