@@ -48,7 +48,6 @@ public class PresentCommands implements CommandExecutor {
                                 } else {
                                     player.sendMessage(ChatColor.RED + "You forgot to set a TP location for " + ChatColor.GOLD + "" + args[1] + ChatColor.RED + ". Do " + ChatColor.GOLD + "/present tpset " + args[1]);
                                 }
-
                                 if (main.getConfig().getStringList("Done").contains(args[1])) {
                                     List<String> string = main.getConfig().getStringList("Names");
                                     string.remove(args[1]);
@@ -98,6 +97,10 @@ public class PresentCommands implements CommandExecutor {
                         player.sendMessage(ChatColor.YELLOW + "Players:");
                         player.sendMessage("" + main.getConfig().getStringList("Names"));
                     }
+                    else if (args[0].equalsIgnoreCase("donelist")) {
+                         player.sendMessage(ChatColor.YELLOW + "Players Done:");
+                         player.sendMessage("" + main.getConfig().getStringList("Done"));
+                     }
                 } else { player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!"); }
             }
         return true;

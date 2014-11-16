@@ -28,6 +28,7 @@ public class HelpList implements CommandExecutor {
                         player.sendMessage(ChatColor.GOLD + "/present done (player name) " + ChatColor.GREEN + " -  add the player to the done list. Make sure their tp location has been set first");
                         player.sendMessage(ChatColor.GOLD + "/presenttpt " + ChatColor.GREEN + " -  Teleport to a players present");
                         player.sendMessage(ChatColor.GOLD + "/present playerlist " + ChatColor.GREEN + " -  Display the list of players who asked for a present");
+                        player.sendMessage(ChatColor.GOLD + "/present donelist " + ChatColor.GREEN + " -  Display the list of players who are on the done list");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasb start " + ChatColor.GREEN + " -  Start the auto-broadcasting");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasb stop " + ChatColor.GREEN + " -  Stop the auto-broadcasting");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasb broadcast " + ChatColor.GREEN + " -  Manually broadcast the message");
@@ -46,6 +47,7 @@ public class HelpList implements CommandExecutor {
                         player.sendMessage(ChatColor.GOLD + "/present done (player name) " + ChatColor.GREEN + " -  add the player to the done list. Make sure their tp location has been set first");
                         player.sendMessage(ChatColor.GOLD + "/presenttpt " + ChatColor.GREEN + " -  Teleport to a players present");
                         player.sendMessage(ChatColor.GOLD + "/present playerlist " + ChatColor.GREEN + " -  Display the list of players who asked for a present");
+                        player.sendMessage(ChatColor.GOLD + "/present donelist " + ChatColor.GREEN + " -  Display the list of players who are on the done list");
 
                     }
                 }
@@ -57,6 +59,7 @@ public class HelpList implements CommandExecutor {
                         player.sendMessage(ChatColor.GOLD + "/ask santa " + ChatColor.GREEN + " -  Ask santa for a gift");
                         player.sendMessage(ChatColor.GOLD + "/presenttp " + ChatColor.GREEN + " -  Teleport to your present " + ChatColor.RED + "(Available on the 25th, December)");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmas help " + ChatColor.GREEN + " -  view your available commands");
+                        player.sendMessage(ChatColor.GOLD + "/advent (day) " + ChatColor.GREEN + " -  Claim your daily advent. e.g of this command - /advent day4" + ChatColor.RED + "(Available from the 1st, December - 25th, December)");
                     }
                 }
             }
