@@ -28,10 +28,11 @@ public class PresentCommands implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (cmd.getName().equalsIgnoreCase("present")) {
-                if (player.hasPermission("simplyxmas.done")) {
+                if (player.hasPermission("simplyxmas.present")) {
                     if (args.length == 0) {
                         player.sendMessage(ChatColor.YELLOW + "Present Commands:");
                         player.sendMessage(ChatColor.GOLD + "/present tpset (player name)");
+                        player.sendMessage(ChatColor.GOLD + "/present tpremove (player name)");
                         player.sendMessage(ChatColor.GOLD + "/present done (player name)");
                         player.sendMessage(ChatColor.GOLD + "/present playerlist");
                     } else if (args[0].equalsIgnoreCase("done")) {
@@ -60,12 +61,7 @@ public class PresentCommands implements CommandExecutor {
                         } else {
                             player.sendMessage(ChatColor.RED + "Try doing " + ChatColor.GOLD + "/present done (player name)");
                         }
-                    }
-                } else {
-                    player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
-                }
-                if (player.hasPermission("simplyxmas.tpset")) {
-                    } if (args[0].equalsIgnoreCase("tpset")) {
+                    } else if (args[0].equalsIgnoreCase("tpset")) {
                         if (args.length == 2) {
                             if (main.getConfig().getStringList("Names").contains(args[1])) {
                                 if (settings.getLocationsFile().getStringList("Names").contains(args[1])) {
@@ -88,20 +84,40 @@ public class PresentCommands implements CommandExecutor {
                             }
                         } else
                             player.sendMessage(ChatColor.RED + "Try doing " + ChatColor.GOLD + "/present tpset (player name)");
+                    } else if (args[0].equalsIgnoreCase("tpremove")) {
+                        if (args.length == 2) {
+                                if (settings.getLocationsFile().getStringList("Names").contains(args[1])) {
+                                    List<String> LocNamesString = settings.getLocationsFile().getStringList("Names");
+                                    LocNamesString.remove(args[1]);
+                                    settings.getLocationsFile().set("Names", LocNamesString);
+                                    player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.GREEN + "'s present TP location has been removed!");
+                                    settings.saveLocationsFile();
+                                    if (main.getConfig().getStringList("Done").contains(args[1])) {
+                                        List<String> doneString = main.getConfig().getStringList("Done");
+                                        doneString.remove(args[1]);
+                                        main.getConfig().set("Done", doneString);
+                                        List<String> namesString = main.getConfig().getStringList("Names");
+                                        namesString.add(args[1]);
+                                        main.getConfig().set("Names", namesString);
+                                        main.saveConfig();
+                                        player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.GREEN + " has also been removed from the done list!");
+                                    }
+                                } else {
+                                    player.sendMessage(ChatColor.GOLD + "" + args[1] + ChatColor.RED + " has not had a present TP location set.");
+                                }
+                            } else { player.sendMessage(ChatColor.RED + "Try doing " + ChatColor.GOLD + "/present tpremove (player name)"); }
+                        }
+                    else if (args[0].equalsIgnoreCase("playerlist")) {
+                            player.sendMessage(ChatColor.YELLOW + "Players:");
+                            player.sendMessage("" + main.getConfig().getStringList("Names"));
+                        } else if (args[0].equalsIgnoreCase("donelist")) {
+                            player.sendMessage(ChatColor.YELLOW + "Players Done:");
+                            player.sendMessage("" + main.getConfig().getStringList("Done"));
+                        }
+                    } else {
+                        player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
                     }
-                } else {
-                    player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
                 }
-                if (player.hasPermission("simplyxmas.list")) {
-                     if (args[0].equalsIgnoreCase("playerlist")) {
-                        player.sendMessage(ChatColor.YELLOW + "Players:");
-                        player.sendMessage("" + main.getConfig().getStringList("Names"));
-                    }
-                    else if (args[0].equalsIgnoreCase("donelist")) {
-                         player.sendMessage(ChatColor.YELLOW + "Players Done:");
-                         player.sendMessage("" + main.getConfig().getStringList("Done"));
-                     }
-                } else { player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!"); }
             }
         return true;
         }

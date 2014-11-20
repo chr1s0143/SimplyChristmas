@@ -289,8 +289,8 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack emerald = new ItemStack(Material.EMERALD, 5);
+                                player.getInventory().addItem(emerald);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 11 yet. Wait until the 11th, December to open this day."); }
                     }
@@ -313,8 +313,8 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack exp_bottle = new ItemStack(Material.EXP_BOTTLE, 18);
+                                player.getInventory().addItem(exp_bottle);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 12 yet. Wait until the 12th, December to open this day."); }
                     }
@@ -337,8 +337,8 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack gold_sword = new ItemStack(Material.GOLD_SWORD, 1);
+                                player.getInventory().addItem(gold_sword);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 13 yet. Wait until the 13th, December to open this day."); }
                     }
@@ -361,7 +361,7 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
+                                ItemStack diamond = new ItemStack(Material.DIAMOND, 3);
                                 player.getInventory().addItem(diamond);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 14 yet. Wait until the 14th, December to open this day."); }
@@ -385,8 +385,8 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack emerald = new ItemStack(Material.EMERALD, 3);
+                                player.getInventory().addItem(emerald);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 15 yet. Wait until the 15th, December to open this day."); }
                     }
@@ -409,8 +409,8 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack diamond_ore = new ItemStack(Material.DIAMOND_ORE, 2);
+                                player.getInventory().addItem(diamond_ore);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 16 yet. Wait until the 16th, December to open this day."); }
                     }
@@ -433,8 +433,8 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack exp_bottle = new ItemStack(Material.EXP_BOTTLE, 18);
+                                player.getInventory().addItem(exp_bottle);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 17 yet. Wait until the 17th, December to open this day."); }
                     }
@@ -457,8 +457,8 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack emerald_block = new ItemStack(Material.EMERALD_BLOCK, 1);
+                                player.getInventory().addItem(emerald_block);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 18 yet. Wait until the 18th, December to open this day."); }
                     }
@@ -481,7 +481,7 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
+                                ItemStack diamond = new ItemStack(Material.DIAMOND, 3);
                                 player.getInventory().addItem(diamond);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 19 yet. Wait until the 19th, December to open this day."); }
@@ -505,8 +505,8 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack exp_bottle = new ItemStack(Material.EXP_BOTTLE, 32);
+                                player.getInventory().addItem(exp_bottle);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 20 yet. Wait until the 20th, December to open this day."); }
                     }
@@ -529,7 +529,7 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
+                                ItemStack diamond = new ItemStack(Material.DIAMOND, 7);
                                 player.getInventory().addItem(diamond);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 21 yet. Wait until the 21th, December to open this day."); }
@@ -543,17 +543,17 @@ public class Advent implements CommandExecutor {
                                 string.add(player.getName());
                                 settings.getAdventFile().set("Day22", string);
                                 if (main.getConfig().getStringList("Names").contains(player.getName())) {
-                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift.");
+                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift." + ChatColor.DARK_GREEN + "Wish chr1s0143 a happy b-day! :D");
                                 }
                                 else if (main.getConfig().getStringList("Done").contains(player.getName())) {
-                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift.");
+                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift." + ChatColor.DARK_GREEN + "Wish chr1s0143 a happy b-day! :D");
                                 }
                                 else {
-                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift. You haven't asked santa for a gift yet, do so now by doing " + ChatColor.GOLD + "/ask santa");
+                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift. You haven't asked santa for a gift yet, do so now by doing " + ChatColor.GOLD + "/ask santa" + ChatColor.DARK_GREEN + " Wish chr1s0143 a happy b-day! :D");
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
+                                ItemStack diamond = new ItemStack(Material.DIAMOND, 9);
                                 player.getInventory().addItem(diamond);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 22 yet. Wait until the 22th, December to open this day."); }
@@ -577,7 +577,7 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
+                                ItemStack diamond = new ItemStack(Material.DIAMOND, 11);
                                 player.getInventory().addItem(diamond);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 23 yet. Wait until the 23th, December to open this day."); }
@@ -601,7 +601,7 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
+                                ItemStack diamond = new ItemStack(Material.DIAMOND, 13);
                                 player.getInventory().addItem(diamond);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 24 yet. Wait until the 24th, December to open this day."); }
@@ -625,12 +625,12 @@ public class Advent implements CommandExecutor {
                                 }
                                 settings.saveAdventFile();
                                 player.giveExp(20);
-                                ItemStack diamond = new ItemStack(Material.DIAMOND, 5);
-                                player.getInventory().addItem(diamond);
+                                ItemStack nether_star = new ItemStack(Material.NETHER_STAR, 1);
+                                player.getInventory().addItem(nether_star);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 25 yet. Wait until the 25th, December to open this day."); }
                     }
-                }
+                } else { player.sendMessage(ChatColor.RED + "You do not have permission to participate in the advent event"); }
             }
         }
         return true;

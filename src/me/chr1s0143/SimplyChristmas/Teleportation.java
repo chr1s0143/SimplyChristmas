@@ -38,8 +38,9 @@ public class Teleportation implements CommandExecutor {
                     } else { player.sendMessage(ChatColor.RED + "Could not locate your present. Did you " + ChatColor.GOLD + "/ask santa" + ChatColor.RED + "?");
                         player.sendMessage(ChatColor.RED + "If you think this is an error, contact a member of staff");
                     }
-                } else
+                } else {
                     player.sendMessage(ChatColor.AQUA + "Santa " + ChatColor.RED + "hasn't given you permission to go to your present yet! Wait until the " + ChatColor.GOLD + "25th, December");
+                }
             }
             else if (cmd.getName().equalsIgnoreCase("presenttpt")) {
                 if (player.hasPermission("simplyxmas.tpt")) {

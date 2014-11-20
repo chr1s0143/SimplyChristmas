@@ -34,8 +34,8 @@ public class Present implements CommandExecutor {
                         player.sendMessage(ChatColor.AQUA + "Don't forget to mention santa in that command! He will only answer to" + ChatColor.GOLD + " /ask santa");
                     else if (args[0].equalsIgnoreCase("santa")) {
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
-                            player.sendMessage(ChatColor.DARK_AQUA + "HO HO HO! You have already been added to my list " + ChatColor.GOLD + " " + player.getName() + ChatColor.DARK_AQUA + ". I will add it to my sleigh very soon."); }
-                        else if (main.getConfig().getStringList("Done").contains(player.getName())) {
+                            player.sendMessage(ChatColor.DARK_AQUA + "HO HO HO! You have already been added to my list " + ChatColor.GOLD + " " + player.getName() + ChatColor.DARK_AQUA + ". I will add it to my sleigh very soon.");
+                        } else if (main.getConfig().getStringList("Done").contains(player.getName())) {
                             player.sendMessage(ChatColor.DARK_AQUA + "HO HO HO! I have already added your gift to my sleigh! You can open it after the " + ChatColor.GOLD + "24th, December");
                         } else {
                             List<String> string = main.getConfig().getStringList("Names");
@@ -45,18 +45,14 @@ public class Present implements CommandExecutor {
                             main.saveConfig();
                             Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] " + ChatColor.DARK_AQUA + "Santa Squish" + ChatColor.DARK_GREEN + ": HO HO HO! " + ChatColor.GOLD + "" + player.getName() + ChatColor.DARK_GREEN + " has just asked me for a gift! If you would like a gift too, just ask me." + ChatColor.GOLD + " /ask santa");
                         }
-                    }
-                    else if (args.length == 1) {
+                    } else if (args.length == 1) {
                         player.sendMessage(ChatColor.GOLD + "" + args[0] + ChatColor.AQUA + " isn't here right now, although Santa Squish is! " + ChatColor.GOLD + "/ask santa");
                     }
                 } else {
-                    player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
+                    player.sendMessage(ChatColor.DARK_RED + "Santa has not given you permission to ask him for a present! If you think this is an error, contact a member of staff.");
                 }
-
-            } else
-                player.sendMessage(ChatColor.RED + "You have not been good this year so Santa will not give you a present! If you think this is an error, contact a member of staff.");
+            }
         }
         return true;
     }
-
 }

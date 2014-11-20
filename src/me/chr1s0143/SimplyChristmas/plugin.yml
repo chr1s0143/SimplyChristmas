@@ -1,6 +1,6 @@
 name: SimplyChristmas
 main: me.chr1s0143.SimplyChristmas.Main
-version: 1.1
+version: 1.2
 author: Chris Hall
 description: Christmas has come to SimplyCrafted! Ask SantaSquish for a gift which he will allow you to open from Christmas Day, onwards.
 
@@ -12,11 +12,14 @@ commands:
     usage: /present tpset (player name)
     description: Sets the tp position that you are currently at for the player.
   present:
+      usage: /present tpremove (player name)
+      description: Removes the tp position that has been set for the player.
+  present:
     usage: /present done (player name)
-    description: Sets the tp position that you are currently at for the player
+    description: Sets the tp position that you are currently at for the player.
   present:
     usage: /present playerlist
-    description: Display the list of players who asked for a present
+    description: Display the list of players who asked for a present.
   presenttp:
     usage: /presenttp
     description: Teleports you to your present! (Unlocked on the 25th December)
@@ -32,6 +35,7 @@ commands:
   simplyxmasb:
     usage: /simplyxmasb stop
     description: Stops the Auto-Broadcasting.
+    permission: simplyxmas.broadcast
   simplyxmasb:
     usage: /simplyxmasb broadcast
     description: Broadcasts the SimplyChristmas Broadcast message manually.

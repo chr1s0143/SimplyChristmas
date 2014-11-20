@@ -9,6 +9,8 @@ import org.bukkit.plugin.PluginDescriptionFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by chris on 13/11/2014.
@@ -116,5 +118,4 @@ public class SettingsManager {
     public void reloadLocationsFile() {
         locations = YamlConfiguration.loadConfiguration(lfile);
     }
-
 }

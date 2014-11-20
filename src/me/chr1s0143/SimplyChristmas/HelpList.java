@@ -59,9 +59,9 @@ public class HelpList implements CommandExecutor {
                         player.sendMessage(ChatColor.GOLD + "/ask santa " + ChatColor.GREEN + " -  Ask santa for a gift");
                         player.sendMessage(ChatColor.GOLD + "/presenttp " + ChatColor.GREEN + " -  Teleport to your present " + ChatColor.RED + "(Available on the 25th, December)");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmas help " + ChatColor.GREEN + " -  view your available commands");
-                        player.sendMessage(ChatColor.GOLD + "/advent (day) " + ChatColor.GREEN + " -  Claim your daily advent. e.g of this command - /advent day4" + ChatColor.RED + "(Available from the 1st, December - 25th, December)");
+                        player.sendMessage(ChatColor.GOLD + "/advent (day) " + ChatColor.GREEN + " -  Claim your daily advent. e.g of this command - /advent day4 " + ChatColor.RED + "(Available from the 1st, December - 25th, December)");
                     }
-                }
+                } else { player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!"); }
             }
         }
         return true;
