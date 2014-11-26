@@ -1,6 +1,6 @@
 name: SimplyChristmas
 main: me.chr1s0143.SimplyChristmas.Main
-version: 1.2
+version: 2.0
 author: Chris Hall
 description: Christmas has come to SimplyCrafted! Ask SantaSquish for a gift which he will allow you to open from Christmas Day, onwards.
 
@@ -45,6 +45,9 @@ commands:
   advent:
     usage: /advent (day) (e.g. /advent day1)
     description: Claim the daily gift from the SimplyChristmas advent calendar.
+  calendar:
+      usage: /calendar
+      description: Open Calendar GUI.
 
 permissions:
     simplyxmas.ask:

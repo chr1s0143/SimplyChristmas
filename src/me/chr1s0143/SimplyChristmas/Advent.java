@@ -9,7 +9,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,8 +26,11 @@ public class Advent implements CommandExecutor {
             Player player = (Player) sender;
             if (cmd.getName().equalsIgnoreCase("advent")) {
                 if (player.hasPermission("simplyxmas.advent")) {
-                    if (args.length == 0)
-                        player.sendMessage(ChatColor.DARK_AQUA + "You need to mention which day to open. E.G: " + ChatColor.GOLD + "/advent day1");
+                    if (args.length == 0) {
+                        player.sendMessage(ChatColor.YELLOW + "Advent Commands:");
+                        player.sendMessage(ChatColor.GOLD + "/calendar ");
+                        player.sendMessage(ChatColor.GOLD + "/advent (day) " + ChatColor.GREEN + "E.G /advent day1");
+                    }
                         //day1
 
                     else if (args[0].equalsIgnoreCase("day1")) {
@@ -543,10 +548,10 @@ public class Advent implements CommandExecutor {
                                 string.add(player.getName());
                                 settings.getAdventFile().set("Day22", string);
                                 if (main.getConfig().getStringList("Names").contains(player.getName())) {
-                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift." + ChatColor.DARK_GREEN + "Wish chr1s0143 a happy b-day! :D");
+                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift." + ChatColor.DARK_GREEN + " Wish chr1s0143 a happy b-day! :D");
                                 }
                                 else if (main.getConfig().getStringList("Done").contains(player.getName())) {
-                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift." + ChatColor.DARK_GREEN + "Wish chr1s0143 a happy b-day! :D");
+                                    player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift." + ChatColor.DARK_GREEN + " Wish chr1s0143 a happy b-day! :D");
                                 }
                                 else {
                                     player.sendMessage(ChatColor.AQUA + "You have opened " + ChatColor.GOLD + "day 22" + ChatColor.AQUA + " of the 25 day advent calendar! Enjoy your gift. You haven't asked santa for a gift yet, do so now by doing " + ChatColor.GOLD + "/ask santa" + ChatColor.DARK_GREEN + " Wish chr1s0143 a happy b-day! :D");
@@ -626,6 +631,9 @@ public class Advent implements CommandExecutor {
                                 settings.saveAdventFile();
                                 player.giveExp(20);
                                 ItemStack nether_star = new ItemStack(Material.NETHER_STAR, 1);
+                                ItemMeta nether_star_meta = nether_star.getItemMeta();
+                                ArrayList<String> ns = new ArrayList<String>();
+                                nether_star_meta.setDisplayName(ChatColor.GREEN + "Merry Christmas" + ChatColor.GOLD + " - " + ChatColor.DARK_AQUA + "2014");
                                 player.getInventory().addItem(nether_star);
                             }
                         } else { player.sendMessage(ChatColor.RED + "You cannot open day 25 yet. Wait until the 25th, December to open this day."); }

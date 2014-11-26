@@ -8,6 +8,8 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -24,12 +26,14 @@ import java.util.Calendar;
 import java.util.concurrent.Executor;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by chris on 04/11/2014.
  */
-public class Main extends JavaPlugin {
+public class Main extends JavaPlugin implements Listener {
     SettingsManager settings = SettingsManager.getInstance();
+    IconMenu im = IconMenu.getInstance();
     int AP;
 
 
@@ -40,8 +44,20 @@ public class Main extends JavaPlugin {
     private static HelpList helpList;
     private static AutoAnnounce autoannounce;
     public static Main instance;
+    public static AdventGUI adventgui;
+    public static IconMenu iconmenu;
+    Logger log;
+
 
     public void onEnable() {
+        getServer().getPluginManager().registerEvents(this, this);
+        settings.setupAdventFile(this);
+        settings.getAdventFile().options().copyDefaults(true);
+        settings.saveDefaultAdventFile();
+        settings.setupLocationFile(this);
+        settings.getLocationsFile().options().copyDefaults(true);
+        settings.saveDefaultLocationsFile();
+        log = Logger.getLogger("Minecraft");
         main = this;
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
@@ -52,7 +68,7 @@ public class Main extends JavaPlugin {
         getCommand("presenttpt").setExecutor(new Teleportation());
         getCommand("simplyxmas").setExecutor(new HelpList());
         getCommand("advent").setExecutor(new Advent());
-
+        getCommand("calendar").setExecutor(new AdventGUI());
         //AutoPerm System
         this.AP = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
             public void run() {
@@ -189,6 +205,7 @@ public class Main extends JavaPlugin {
         }, 0L, 20L);
     }
 
+
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         File config = new File(getDataFolder() + File.separator + "config.yml");
         File advent = new File(getDataFolder() + File.separator + "advent.yml");
@@ -203,44 +220,43 @@ public class Main extends JavaPlugin {
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasr config  " + ChatColor.GREEN + "-  Reload the config.yml file");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasr locations  " + ChatColor.GREEN + "-  Reload the locations.yml file");
                         player.sendMessage(ChatColor.GOLD + "/simplyxmasr advent  " + ChatColor.GREEN + "-  Reload the advent.yml file");
-                    }
-                        else if (args[0].equalsIgnoreCase("config")) {
-                            if (!config.exists()) {
-                                getConfig().options().copyDefaults(true);
-                                saveDefaultConfig();
-                                player.sendMessage(ChatColor.RED + "config.yml file was not found! Generating a new config.yml file....");
-                                {
-                                    reloadConfig();
-                                }
-                            } else {
+                    } else if (args[0].equalsIgnoreCase("config")) {
+                        if (!config.exists()) {
+                            getConfig().options().copyDefaults(true);
+                            saveDefaultConfig();
+                            player.sendMessage(ChatColor.RED + "config.yml file was not found! Generating a new config.yml file....");
+                            {
                                 reloadConfig();
-                                player.sendMessage(ChatColor.DARK_GREEN + "Config File Has Been Reloaded!");
                             }
-                        } else if (args[0].equalsIgnoreCase("locations")) {
-                            if (!locations.exists()) {
-                                try {
-                                    locations.createNewFile();
-                                    player.sendMessage(ChatColor.RED + "locations.yml file was not found! Generating a new locations.yml file....");
-                                } catch (IOException e) {
-                                    Bukkit.getServer().getLogger().severe(ChatColor.RED + "Could not create locations.yml!");
-                                }
-                            } else {
-                                settings.reloadLocationsFile();
-                                player.sendMessage(ChatColor.DARK_GREEN + "Locations File Has Been Reloaded!");
-                            }
-                        } else if (args[0].equalsIgnoreCase("advent")) {
-                            if (!advent.exists()) {
-                                try {
-                                    advent.createNewFile();
-                                    player.sendMessage(ChatColor.RED + "advent.yml file was not found! Generating a new advent.yml file....");
-                                } catch (IOException e) {
-                                    Bukkit.getServer().getLogger().severe(ChatColor.RED + "Could not create advent.yml!");
-                                }
-                            } else {
-                                settings.reloadAdventFile();
-                                player.sendMessage(ChatColor.DARK_GREEN + "Advent File Has Been Reloaded!");
-                            }
+                        } else {
+                            reloadConfig();
+                            player.sendMessage(ChatColor.DARK_GREEN + "Config File Has Been Reloaded!");
                         }
+                    } else if (args[0].equalsIgnoreCase("locations")) {
+                        if (!locations.exists()) {
+                            try {
+                                locations.createNewFile();
+                                player.sendMessage(ChatColor.RED + "locations.yml file was not found! Generating a new locations.yml file....");
+                            } catch (IOException e) {
+                                Bukkit.getServer().getLogger().severe(ChatColor.RED + "Could not create locations.yml!");
+                            }
+                        } else {
+                            settings.reloadLocationsFile();
+                            player.sendMessage(ChatColor.DARK_GREEN + "Locations File Has Been Reloaded!");
+                        }
+                    } else if (args[0].equalsIgnoreCase("advent")) {
+                        if (!advent.exists()) {
+                            try {
+                                advent.createNewFile();
+                                player.sendMessage(ChatColor.RED + "advent.yml file was not found! Generating a new advent.yml file....");
+                            } catch (IOException e) {
+                                Bukkit.getServer().getLogger().severe(ChatColor.RED + "Could not create advent.yml!");
+                            }
+                        } else {
+                            settings.reloadAdventFile();
+                            player.sendMessage(ChatColor.DARK_GREEN + "Advent File Has Been Reloaded!");
+                        }
+                    }
                 } else {
                     player.sendMessage(ChatColor.DARK_RED + "You do not have permission to use this command!");
                 }
@@ -248,6 +264,7 @@ public class Main extends JavaPlugin {
         }
         return true;
     }
+
     public static Main getInstance() {
         return main;
     }
