@@ -46,6 +46,7 @@ public class Main extends JavaPlugin implements Listener {
     public static Main instance;
     public static AdventGUI adventgui;
     public static IconMenu iconmenu;
+    public static helpsanta helpsanta;
     Logger log;
 
 
@@ -69,6 +70,7 @@ public class Main extends JavaPlugin implements Listener {
         getCommand("simplyxmas").setExecutor(new HelpList());
         getCommand("advent").setExecutor(new Advent());
         getCommand("calendar").setExecutor(new AdventGUI());
+        getCommand("helpsanta").setExecutor(new helpsanta());
         //AutoPerm System
         this.AP = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
             public void run() {
@@ -76,128 +78,128 @@ public class Main extends JavaPlugin implements Listener {
                 if ((timeStamp.equalsIgnoreCase("12012014 120000"))) {
                     System.out.print("Advent Day 1 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] " 
-                                    + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 1 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day1");
+                                    + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 1 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day1");
                 } else if ((timeStamp.equalsIgnoreCase("12022014 120000"))) {
                     System.out.print("Advent Day 2 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 2 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day2");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 2 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day2");
                 } else if ((timeStamp.equalsIgnoreCase("12032014 120000"))) {
                     System.out.print("Advent Day 3 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 3 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day3");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 3 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day3");
                 } else if ((timeStamp.equalsIgnoreCase("12042014 120000"))) {
                     System.out.print("Advent Day 4 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 4 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day4");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 4 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day4");
                 } else if ((timeStamp.equalsIgnoreCase("12052014 120000"))) {
                     System.out.print("Advent Day 5 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 5 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day5");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 5 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day5");
                 } else if ((timeStamp.equalsIgnoreCase("12062014 120000"))) {
                     System.out.print("Advent Day 6 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 6 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day6");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 6 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day6");
                 } else if ((timeStamp.equalsIgnoreCase("12072014 120000"))) {
                     System.out.print("Advent Day 7 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 7 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day7");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 7 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day7");
                 } else if ((timeStamp.equalsIgnoreCase("12082014 120000"))) {
                     System.out.print("Advent Day 8 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 8 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day8");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 8 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day8");
                 } else if ((timeStamp.equalsIgnoreCase("12092014 120000"))) {
                     System.out.print("Advent Day 9 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 9 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day9");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 9 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day9");
                 } else if ((timeStamp.equalsIgnoreCase("12102014 120000"))) {
                     System.out.print("Advent Day 10 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 10 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day10");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 10 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day10");
                 } else if ((timeStamp.equalsIgnoreCase("12112014 120000"))) {
                     System.out.print("Advent Day 11 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 11 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day11");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 11 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day11");
                 } else if ((timeStamp.equalsIgnoreCase("12122014 120000"))) {
                     System.out.print("Advent Day 12 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 12 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day12");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 12 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day12");
                 } else if ((timeStamp.equalsIgnoreCase("12132014 120000"))) {
                     System.out.print("Advent Day 13 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 13 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day13");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 13 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day13");
                 } else if ((timeStamp.equalsIgnoreCase("12142014 120000"))) {
                     System.out.print("Advent Day 14 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 14 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day14");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 14 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day14");
                 } else if ((timeStamp.equalsIgnoreCase("12152014 120000"))) {
                     System.out.print("Advent Day 15 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 15 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day15");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 15 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day15");
                 } else if ((timeStamp.equalsIgnoreCase("12162014 120000"))) {
                     System.out.print("Advent Day 16 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 16 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day16");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 16 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day16");
                 } else if ((timeStamp.equalsIgnoreCase("12172014 120000"))) {
                     System.out.print("Advent Day 17 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 17 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day17");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 17 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day17");
                 } else if ((timeStamp.equalsIgnoreCase("12182014 120000"))) {
                     System.out.print("Advent Day 18 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 18 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day18");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 18 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day18");
                 } else if ((timeStamp.equalsIgnoreCase("12192014 120000"))) {
                     System.out.print("Advent Day 19 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 19 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day19");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 19 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day19");
                 } else if ((timeStamp.equalsIgnoreCase("12202014 120000"))) {
                     System.out.print("Advent Day 20 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 20 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day20");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 20 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day20");
                 } else if ((timeStamp.equalsIgnoreCase("12212014 120000"))) {
                     System.out.print("Advent Day 21 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 21 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day21");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 21 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day21");
                 } else if ((timeStamp.equalsIgnoreCase("12222014 120000"))) {
                     System.out.print("Advent Day 22 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 22 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day22");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 22 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day22");
                 } else if ((timeStamp.equalsIgnoreCase("12232014 120000"))) {
                     System.out.print("Advent Day 23 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 23 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day23");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 23 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day23");
                 } else if ((timeStamp.equalsIgnoreCase("12242014 120000"))) {
                     System.out.print("Advent Day 24 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
-                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 24 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/advent day24");
+                            + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 24 of the SimplyAdvent Calendar is now available to open! " + ChatColor.GOLD + "/calendar");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day24");
                 } else if ((timeStamp.equalsIgnoreCase("12252014 120000"))) {
                     System.out.print("Advent Day 25 Unlocked!");
                     Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "[G] " + ChatColor.WHITE + "[" + ChatColor.GREEN + "Christmas" + ChatColor.WHITE + "] "
                             + ChatColor.DARK_AQUA + "Advent" + ChatColor.DARK_GREEN + ": Day 25 of the SimplyAdvent Calendar is now available to open! I hope you all have a great Christams! - From all the SimplyCrafted Staff"
-                            + ChatColor.GOLD + "/advent day25" + ChatColor.GREEN + " You can now TP to your present if you asked for one before the 22nd, December! " + ChatColor.GOLD + "/presenttp");
+                            + ChatColor.GOLD + " /calendar" + ChatColor.GREEN + " You can now TP to your present if you asked for one before the 22nd, December! " + ChatColor.GOLD + "/presenttp");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.advent.day25");
                     getServer().dispatchCommand(getServer().getConsoleSender(), "pex group Player add simplyxmas.tp");
                 }

@@ -71,9 +71,11 @@ public class PresentCommands implements CommandExecutor {
                                     string.add(args[1]);
                                     settings.getLocationsFile().set("Names", string);
                                     settings.getLocationsFile().getStringList("Locations");
-                                    settings.getLocationsFile().set(args[1] + ".x", player.getLocation().getBlockX());
-                                    settings.getLocationsFile().set(args[1] + ".y", player.getLocation().getBlockY());
-                                    settings.getLocationsFile().set(args[1] + ".z", player.getLocation().getBlockZ());
+                                    settings.getLocationsFile().set(args[1] + ".x", player.getLocation().getX());
+                                    settings.getLocationsFile().set(args[1] + ".y", player.getLocation().getY());
+                                    settings.getLocationsFile().set(args[1] + ".z", player.getLocation().getZ());
+                                    settings.getLocationsFile().set(args[1] + ".yaw", player.getLocation().getYaw());
+                                    settings.getLocationsFile().set(args[1] + ".pitch", player.getLocation().getPitch());
                                     player.sendMessage(ChatColor.GOLD + " " + args[1] + "'s " + ChatColor.GREEN + "location set. Be sure to do " + ChatColor.GOLD + "/present done " + "" + args[1]);
                                     settings.saveLocationsFile();
                                 }

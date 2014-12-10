@@ -44,7 +44,7 @@ public class AutoAnnounce implements CommandExecutor {
                         this.ph = Bukkit.getScheduler().scheduleSyncRepeatingTask(main, new Runnable() {
                             public void run() {
                                 main.getServer().broadcastMessage(ChatColor.AQUA + "Do you want to help santa find his lost presents?"
-                                        + ChatColor.GOLD + " (Command Here) " + ChatColor.AQUA + "to find out what you can do to help!");
+                                        + ChatColor.GOLD + " /helpsanta " + ChatColor.AQUA + "to find out what you can do to help!");
                             }
                         }, 1200, 36000);
                         this.adb = Bukkit.getScheduler().scheduleSyncRepeatingTask(main, new Runnable() {
@@ -57,6 +57,7 @@ public class AutoAnnounce implements CommandExecutor {
                         player.sendMessage(ChatColor.GREEN + "SimplyChristmas AutoBroadcast Stopped!");
                         Bukkit.getScheduler().cancelTask(ab);
                         Bukkit.getScheduler().cancelTask(ph);
+                        Bukkit.getScheduler().cancelTask(adb);
                     } else if (args.length == 1) {
                         player.sendMessage(ChatColor.GOLD + "" + args[0] + ChatColor.RED + " is not part of the command");
                         player.sendMessage(ChatColor.YELLOW + "Broadcast Commands:");

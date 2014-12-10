@@ -32,8 +32,10 @@ public class Teleportation implements CommandExecutor {
                     if (settings.getLocationsFile().getStringList("Names").contains(player.getName())) {
                     int x = settings.getLocationsFile().getInt(player.getName() + ".x"),
                             y = settings.getLocationsFile().getInt(player.getName() + ".y"),
-                            z = settings.getLocationsFile().getInt(player.getName() + ".z");
-                    player.teleport(new Location(player.getWorld(), x, y, z));
+                            z = settings.getLocationsFile().getInt(player.getName() + ".z"),
+                            pitch = settings.getLocationsFile().getInt(player.getName() + ".p"),
+                            yaw = settings.getLocationsFile().getInt(player.getName() + ".yaw");
+                    player.teleport(new Location(player.getWorld(), x, y, z, yaw, pitch));
                     player.sendMessage(ChatColor.GREEN + "Teleporting to your present");
                     } else { player.sendMessage(ChatColor.RED + "Could not locate your present. Did you " + ChatColor.GOLD + "/ask santa" + ChatColor.RED + "?");
                         player.sendMessage(ChatColor.RED + "If you think this is an error, contact a member of staff");
@@ -50,8 +52,10 @@ public class Teleportation implements CommandExecutor {
                         if (settings.getLocationsFile().getStringList("Names").contains(args[0])) {
                             int     x = settings.getLocationsFile().getInt(args[0] + ".x"),
                                     y = settings.getLocationsFile().getInt(args[0] + ".y"),
-                                    z = settings.getLocationsFile().getInt(args[0] + ".z");
-                            player.teleport(new Location(player.getWorld(), x, y, z));
+                                    z = settings.getLocationsFile().getInt(args[0] + ".z"),
+                                    yaw = settings.getLocationsFile().getInt(args[0] + ".yaw"),
+                                    pitch = settings.getLocationsFile().getInt(args[0] + ".pitch");
+                            player.teleport(new Location(player.getWorld(), x, y, z, yaw, pitch));
                             player.sendMessage(ChatColor.GREEN + "Teleporting to " + ChatColor.GOLD + "" + args[0] + "'s " + ChatColor.GREEN + "present ");
                         } else { player.sendMessage(ChatColor.GOLD + "" + args[0] + ChatColor.RED + " does not have a present location set!" ); }
                     }

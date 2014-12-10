@@ -61,7 +61,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                         }
                         settings.saveAdventFile();
                         player.giveExp(20);
-                        ItemStack diamonds = new ItemStack(Material.DIAMOND, 1);
+                        ItemStack diamonds = new ItemStack(Material.DIAMOND, 7);
                         player.getInventory().addItem(diamonds);
                     }
                 } else {
@@ -84,8 +84,16 @@ public class AdventGUI implements CommandExecutor, Listener{
                         }
                         settings.saveAdventFile();
                         player.giveExp(20);
-                        ItemStack diamonds = new ItemStack(Material.EMERALD, 4);
-                        player.getInventory().addItem(diamonds);
+                        ItemStack diamond_pickaxe = new ItemStack(Material.DIAMOND_PICKAXE, 1);
+                        ItemMeta diamond_pickaxe_meta = diamond_pickaxe.getItemMeta();
+                        ArrayList<String> dp = new ArrayList<String>();
+                        diamond_pickaxe_meta.setDisplayName(ChatColor.GREEN + "The Christmas Pickaxe!" + ChatColor.GOLD + " - " + ChatColor.DARK_AQUA + "2014");
+                        dp.add(ChatColor.GREEN + " What happened to the man ");
+                        dp.add(ChatColor.GREEN + " who stole an Advent Calendar? ");
+                        dp.add(ChatColor.DARK_AQUA + " He got 25 Days! HAHA!! ");
+                        diamond_pickaxe_meta.setLore(dp);
+                        diamond_pickaxe.setItemMeta(diamond_pickaxe_meta);
+                        player.getInventory().addItem(diamond_pickaxe);
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "You cannot open day 2 yet. Wait until the 2nd, December to open this day.");
@@ -94,8 +102,9 @@ public class AdventGUI implements CommandExecutor, Listener{
                 if (player.hasPermission("simplyxmas.advent.day3")) {
                     if (settings.getAdventFile().getStringList("Day3").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 4");
+                        return;
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day2");
+                        List<String> string = settings.getAdventFile().getStringList("Day3");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day3", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -131,6 +140,10 @@ public class AdventGUI implements CommandExecutor, Listener{
                         settings.saveAdventFile();
                         player.giveExp(20);
                         ItemStack jukebox = new ItemStack(Material.JUKEBOX, 1);
+                        ItemMeta jukebox_meta = jukebox.getItemMeta();
+                        ArrayList<String> dp = new ArrayList<String>();
+                        jukebox_meta.setDisplayName(ChatColor.GREEN + "The Boom Box" + ChatColor.GOLD + " - " + ChatColor.DARK_AQUA + "2014");
+                        jukebox.setItemMeta(jukebox_meta);
                         player.getInventory().addItem(jukebox);
                     }
                 } else {
@@ -164,7 +177,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day6").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 7");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day6");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day6", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -187,7 +200,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day7").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 8");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day7");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day7", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -210,7 +223,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day8").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 9");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day8");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day8", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -222,8 +235,8 @@ public class AdventGUI implements CommandExecutor, Listener{
                         }
                         settings.saveAdventFile();
                         player.giveExp(20);
-                        ItemStack mob_spawner = new ItemStack(Material.MOB_SPAWNER, 1);
-                        player.getInventory().addItem(mob_spawner);
+                        ItemStack exp_bottle = new ItemStack(Material.EXP_BOTTLE, 64);
+                        player.getInventory().addItem(exp_bottle);
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "You cannot open day 8 yet. Wait until the 8th, December to open this day.");
@@ -233,7 +246,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day9").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 10");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day9");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day9", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -256,7 +269,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day10").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 11");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day10");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day10", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -279,7 +292,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day11").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 12");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day11");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day11", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -302,7 +315,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day12").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 13");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day12");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day12", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -325,7 +338,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day13").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 14");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day13");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day13", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -348,7 +361,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day14").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 15");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day14");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day14", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -371,7 +384,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day15").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 16");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day15");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day15", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -394,7 +407,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day16").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 17");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day16");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day16", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -406,8 +419,8 @@ public class AdventGUI implements CommandExecutor, Listener{
                         }
                         settings.saveAdventFile();
                         player.giveExp(20);
-                        ItemStack diamond_ore = new ItemStack(Material.DIAMOND_ORE, 2);
-                        player.getInventory().addItem(diamond_ore);
+                        ItemStack exp_bottle = new ItemStack(Material.EXP_BOTTLE, 32);
+                        player.getInventory().addItem(exp_bottle);
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "You cannot open day 16 yet. Wait until the 16th, December to open this day.");
@@ -417,7 +430,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day17").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 18");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day17");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day17", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -429,8 +442,8 @@ public class AdventGUI implements CommandExecutor, Listener{
                         }
                         settings.saveAdventFile();
                         player.giveExp(20);
-                        ItemStack exp_bottle = new ItemStack(Material.EXP_BOTTLE, 18);
-                        player.getInventory().addItem(exp_bottle);
+                        ItemStack gold_nugget = new ItemStack(Material.GOLD_NUGGET, 64);
+                        player.getInventory().addItem(gold_nugget);
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "You cannot open day 17 yet. Wait until the 17th, December to open this day.");
@@ -440,7 +453,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day18").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 19");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day18");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day18", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -463,7 +476,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day19").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 20");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day19");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day19", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -486,7 +499,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day20").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 21");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day20");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day20", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -509,7 +522,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day21").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 22");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day21");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day21", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -532,7 +545,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day22").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 23");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day22");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day22", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -544,8 +557,8 @@ public class AdventGUI implements CommandExecutor, Listener{
                         }
                         settings.saveAdventFile();
                         player.giveExp(20);
-                        ItemStack diamond = new ItemStack(Material.DIAMOND, 9);
-                        player.getInventory().addItem(diamond);
+                        ItemStack gold_nugget = new ItemStack(Material.GOLD_NUGGET, 64);
+                        player.getInventory().addItem(gold_nugget);
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "You cannot open day 22 yet. Wait until the 22th, December to open this day.");
@@ -555,7 +568,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day23").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 24");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day23");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day23", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -567,7 +580,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                         }
                         settings.saveAdventFile();
                         player.giveExp(20);
-                        ItemStack diamond = new ItemStack(Material.DIAMOND, 11);
+                        ItemStack diamond = new ItemStack(Material.DIAMOND, 2);
                         player.getInventory().addItem(diamond);
                     }
                 } else {
@@ -578,7 +591,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day24").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! You need to wait until tomorrow to open " + ChatColor.GOLD + "Day 25");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day24");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day24", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -590,8 +603,8 @@ public class AdventGUI implements CommandExecutor, Listener{
                         }
                         settings.saveAdventFile();
                         player.giveExp(20);
-                        ItemStack diamond = new ItemStack(Material.DIAMOND, 13);
-                        player.getInventory().addItem(diamond);
+                        ItemStack diamond_block = new ItemStack(Material.DIAMOND_BLOCK, 1);
+                        player.getInventory().addItem(diamond_block);
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "You cannot open day 24 yet. Wait until the 24th, December to open this day.");
@@ -601,7 +614,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                     if (settings.getAdventFile().getStringList("Day25").contains(player.getName())) {
                         player.sendMessage(ChatColor.DARK_AQUA + "You have already claimed today's advent! Check back and see if you missed any days. Merry Christmas! :)");
                     } else {
-                        List<String> string = settings.getAdventFile().getStringList("Day5");
+                        List<String> string = settings.getAdventFile().getStringList("Day25");
                         string.add(player.getName());
                         settings.getAdventFile().set("Day25", string);
                         if (main.getConfig().getStringList("Names").contains(player.getName())) {
@@ -616,7 +629,7 @@ public class AdventGUI implements CommandExecutor, Listener{
                         ItemStack nether_star = new ItemStack(Material.NETHER_STAR, 1);
                         ItemMeta nether_star_meta = nether_star.getItemMeta();
                         ArrayList<String> ns = new ArrayList<String>();
-                        nether_star_meta.setDisplayName(ChatColor.GREEN + "Merry Christmas" + ChatColor.GOLD + " - " + ChatColor.DARK_AQUA + "2014");
+                        nether_star_meta.setDisplayName(ChatColor.GREEN + "SimplyCrafted Christmas" + ChatColor.GOLD + " - " + ChatColor.DARK_AQUA + "2014");
                         ns.add(ChatColor.GREEN + "SimplyCrafted staff wishes you a very Happy Christmas!");
                         nether_star_meta.setLore(ns);
                         nether_star.setItemMeta(nether_star_meta);

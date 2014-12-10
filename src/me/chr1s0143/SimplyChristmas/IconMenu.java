@@ -142,18 +142,6 @@ public class IconMenu implements Listener {
         public boolean willDestroy() {
             return destroy;
         }
-
-        public void setWillClose(boolean close) {
-            this.close = close;
-        }
-
-        public void setWillDestroy(boolean destroy) {
-            this.destroy = destroy;
-        }
-
-        public ItemStack getItem() {
-            return item;
-        }
     }
 
     private ItemStack setItemNameAndLore(ItemStack item, String name, String[] lore) {
